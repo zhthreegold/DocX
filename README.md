@@ -19,7 +19,19 @@ Currently, the differences between DocX and Xceed Words for .NET, is that Xceed 
 
 ## What else do I need?
 
-All that you need to install in order to use DocX is the [.NET framework 4.0](http://www.microsoft.com/downloads/en/details.aspx?FamilyID=9cfb2d51-5ff4-4491-b0e5-b386f32c0992&displaylang=en) and [Visual Studio 2010](http://www.microsoft.com/express/Downloads/) or later, both of which are free.
+This fork/build targets **.NET 10** (`net10.0`).
+
+To build from source:
+
+```bash
+dotnet build Xceed.Words.NET.sln -c Release
+```
+
+To smoke-run the examples without executing Windows-only System.Drawing demos:
+
+```bash
+dotnet run --project Xceed.Words.NET.Examples/Xceed.Words.NET.Examples.csproj -c Release -- --smoke
+```
 
 ## What are the main features of DocX?
 
