@@ -20,7 +20,7 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string ProtectionSampleOutputDirectory = Program.SampleDirectory + @"Protection\Output\";
+    private static readonly string ProtectionSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "Protection", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

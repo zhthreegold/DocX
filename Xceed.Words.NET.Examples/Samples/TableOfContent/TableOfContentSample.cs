@@ -19,7 +19,7 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string TableOfContentSampleOutputDirectory = Program.SampleDirectory + @"TableOfContent\Output\";
+    private static readonly string TableOfContentSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "TableOfContent", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

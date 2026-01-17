@@ -20,7 +20,7 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string LineSampleOutputDirectory = Program.SampleDirectory + @"Line\Output\";
+    private static readonly string LineSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "Line", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

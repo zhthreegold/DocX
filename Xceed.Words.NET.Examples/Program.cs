@@ -11,20 +11,33 @@ is only intended as a supplement to the documentation, and is provided
 *************************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 
 namespace Xceed.Words.NET.Examples
 {
   public class Program
   {
-    internal const string SampleDirectory = @"..\..\Samples\";
+    // Absolute path to sample assets copied next to the built output.
+    internal static readonly string SampleDirectory = Path.Combine( AppContext.BaseDirectory, "Samples" ) + Path.DirectorySeparatorChar;
 
     private static void Main( string[] args )
     {
+      // Ensure any relative output paths are created under the output folder.
+      Directory.SetCurrentDirectory( AppContext.BaseDirectory );
 
       Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo( "en-US" );
 
-      //Paragraphs      
+      // Optional: keep a quick sanity run for CI / non-Windows platforms
+      if( args != null && Array.Exists( args, a => string.Equals( a, "--smoke", StringComparison.OrdinalIgnoreCase ) ) )
+      {
+        ParagraphSample.SimpleFormattedParagraphs();
+        DocumentSample.AddCustomProperties();
+        Console.WriteLine( "\nSmoke run completed." );
+        return;
+      }
+
+      //Paragraphs
       ParagraphSample.SimpleFormattedParagraphs();
       ParagraphSample.ForceParagraphOnSinglePage();
       ParagraphSample.ForceMultiParagraphsOnSinglePage();
@@ -40,11 +53,18 @@ namespace Xceed.Words.NET.Examples
       DocumentSample.LoadDocumentWithStream();
       DocumentSample.LoadDocumentWithStringUrl();
 
-      //Images
-      ImageSample.AddPicture();
-      ImageSample.AddPictureWithTextWrapping();
-      ImageSample.CopyPicture();
-      ImageSample.ModifyImage();
+      // Images: uses System.Drawing APIs which are Windows-only at runtime on modern .NET
+      if( OperatingSystem.IsWindows() )
+      {
+        ImageSample.AddPicture();
+        ImageSample.AddPictureWithTextWrapping();
+        ImageSample.CopyPicture();
+        ImageSample.ModifyImage();
+      }
+      else
+      {
+        Console.WriteLine( "\tSkipping Image samples (System.Drawing is Windows-only at runtime)." );
+      }
 
       // Indentation / Direction / Margins
       MarginSample.SetDirection();

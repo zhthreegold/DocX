@@ -20,7 +20,7 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string HeaderFooterSampleOutputDirectory = Program.SampleDirectory + @"HeaderFooter\Output\";
+    private static readonly string HeaderFooterSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "HeaderFooter", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

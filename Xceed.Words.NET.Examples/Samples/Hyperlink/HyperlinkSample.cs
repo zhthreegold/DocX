@@ -21,7 +21,7 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string HyperlinkSampleOutputDirectory = Program.SampleDirectory + @"Hyperlink\Output\";
+    private static readonly string HyperlinkSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "Hyperlink", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

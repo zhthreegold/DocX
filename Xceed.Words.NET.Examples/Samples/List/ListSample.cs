@@ -21,7 +21,7 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string ListSampleOutputDirectory = Program.SampleDirectory + @"List\Output\";
+    private static readonly string ListSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "List", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

@@ -21,8 +21,8 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string ChartSampleOutputDirectory = Program.SampleDirectory + @"Chart\Output\";
-    private const string ChartSampleResourceDirectory = Program.SampleDirectory + @"Chart\Resources\";
+    private static readonly string ChartSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "Chart", "Output" ) + Path.DirectorySeparatorChar;
+    private static readonly string ChartSampleResourceDirectory = Path.Combine( Program.SampleDirectory, "Chart", "Resources" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

@@ -27,7 +27,7 @@ namespace Xceed.Words.NET.Examples
         { "COST", "$13.95" },
     };
 
-    private const string ParagraphSampleOutputDirectory = Program.SampleDirectory + @"Paragraph\Output\";
+    private static readonly string ParagraphSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "Paragraph", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

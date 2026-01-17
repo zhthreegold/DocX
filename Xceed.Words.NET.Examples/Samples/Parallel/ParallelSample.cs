@@ -20,8 +20,8 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string ParallelSampleResourcesDirectory = Program.SampleDirectory + @"Parallel\Resources\";
-    private const string ParallelSampleOutputDirectory = Program.SampleDirectory + @"Parallel\Output\";
+    private static readonly string ParallelSampleResourcesDirectory = Path.Combine( Program.SampleDirectory, "Parallel", "Resources" ) + Path.DirectorySeparatorChar;
+    private static readonly string ParallelSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "Parallel", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 

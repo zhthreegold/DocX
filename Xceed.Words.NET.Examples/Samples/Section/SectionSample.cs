@@ -22,7 +22,7 @@ namespace Xceed.Words.NET.Examples
   {
     #region Private Members
 
-    private const string SectionSampleOutputDirectory = Program.SampleDirectory + @"Section\Output\";
+    private static readonly string SectionSampleOutputDirectory = Path.Combine( Program.SampleDirectory, "Section", "Output" ) + Path.DirectorySeparatorChar;
 
     #endregion
 
